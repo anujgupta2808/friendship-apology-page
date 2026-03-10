@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Really Sorry 💙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', 'Arial', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating hearts background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: float 6s ease-in infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            transform: translateY(0);
+            animation: slideUp 0.8s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative elements */
+        .top-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .top-decoration span {
+            display: inline-block;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0 rgba(255, 77, 109, 0.2);
+            background: linear-gradient(45deg, #ff4d6d, #ff8c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4d6d, #ffb6c1, #ff4d6d);
+            border-radius: 2px;
+            animation: widthPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes widthPulse {
+
+            0%,
+            100% {
+                width: 100px;
+                opacity: 0.7;
+            }
+
+            50% {
+                width: 150px;
+                opacity: 1;
+            }
+        }
+
+        .message-card {
+            background: linear-gradient(135deg, #fff5f5, #fff);
+            padding: 30px;
+            border-radius: 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+            border: 2px dashed #ffb6c1;
+        }
+
+        p {
+            color: #4a4a4a;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f9d9e0 0%, #f9d9e0 40%, #ffd9e0 90%);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            color: #ff4d6d;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(255, 77, 109, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
+            }
+        }
+
+        .forgiveness-question {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            margin: 30px 0 20px;
+            background: #fff0f3;
+            padding: 15px;
+            border-radius: 50px;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 0 #ffb6c1;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 120px;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin: 0;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .yes {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: 2px solid #fff;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 30px rgba(76, 175, 80, 0.4);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .yes:hover {
+            transform: scale(1.1) rotate(2deg);
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.5);
+        }
+
+        .no {
+            background: linear-gradient(135deg, #ff4d6d, #ff3355);
+            color: white;
+            border: 2px solid #fff;
+            position: absolute;
+            transition: all 0.2s ease;
+            z-index: 20;
+        }
+
+        .no:hover {
+            background: linear-gradient(135deg, #ff3355, #ff1a3f);
+            box-shadow: 0 15px 30px rgba(255, 77, 109, 0.5);
+        }
+
+        /* Friend tags */
+        .friend-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 182, 193, 0.3);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 1rem;
+            color: #ff4d6d;
+            font-weight: 500;
+            border: 1px solid rgba(255, 77, 109, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .tag:hover {
+            background: rgba(255, 182, 193, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Success message popup */
+        .success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-align: center;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid #4CAF50;
+            max-width: 400px;
+        }
+
+        .success-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .popup-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: popupBounce 0.5s ease infinite;
+        }
+
+        @keyframes popupBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .popup-message {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .popup-text {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .close-popup {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-popup:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .forgiveness-question {
+                font-size: 1.4rem;
+            }
+
+            button {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+
+            .buttons {
+                gap: 15px;
+            }
+        }
+
+        /* WhatsApp button styling */
+        .whatsapp-hint {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .whatsapp-hint i {
+            color: #25D366;
+            font-style: normal;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Success Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="success-popup" id="successPopup">
+        <div class="popup-emoji">🥹❤️</div>
+        <div class="popup-message">Thank You! 💙</div>
+        <div class="popup-text">You're the best friend ever! Let's talk on WhatsApp 💬</div>
+        <button class="close-popup" onclick="closePopup()">Open WhatsApp →</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container" id="box">
+        <!-- Decorative top -->
+        <div class="top-decoration">
+            <span>🤝</span>
+            <span>👯‍♀️</span>
+            <span>💙</span>
+            <span>🤗</span>
+            <span>✨</span>
+        </div>
+
+        <h1>I'm Really Sorry</h1>
+
+        <div class="message-card">
+            <p>
+                <span class="highlight">Hey beautiful soul</span> 💫
+            </p>
+            <p>
+                I just want to say I'm really sorry agar meri kisi baat ya action ki wajah se tumhe jealous ya upset
+                feel hua ho. Woh kabhi bhi mera intention nahi tha. Tumhari feelings mere liye bahut important hain, aur
+                hamari friendship mere liye duniya jaisi hai.
+
+                You are someone very special in my life, and I truly value every moment of our friendship. I hope you
+                can forgive me and we can keep our bond just as strong as before.
+
+            </p>
+            <p style="font-style: italic; color: #ff4d6d;">
+                "True friends are never apart, maybe in distance but never in heart." 💕
+            </p>
+        </div>
+
+        <div class="forgiveness-question">
+            Will you forgive me, friend? 🥺
+        </div>
+
+        <div class="buttons">
+            <button class="yes" onclick="goWhatsApp()">
+                <span>Yes ❤️</span>
+            </button>
+            <button class="no" id="noBtn">
+                <span>No 😢</span>
+            </button>
+        </div>
+
+        <!-- Friend tags -->
+        <div class="friend-tags">
+            <span class="tag">💬 always here to listen</span>
+            <span class="tag">🤝 best friends forever</span>
+            <span class="tag">⭐ you're special to me</span>
+            <span class="tag">🥰 no hard feelings</span>
+        </div>
+
+        <!-- WhatsApp hint -->
+        <div class="whatsapp-hint">
+            Click <i>Yes</i> to chat with me on WhatsApp 💬
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const emojis = ['❤️', '💙', '💕', '💗', '💓', '💖', '🤗', '🤝', '✨'];
+
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        createFloatingHearts();
+
+        // No button movement
+        const noBtn = document.getElementById("noBtn");
+        const box = document.getElementById("box");
+        let moveCount = 0;
+
+        function moveButton() {
+            moveCount++;
+            const boxRect = box.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            // Calculate safe boundaries
+            const maxX = boxRect.width - btnRect.width - 20;
+            const maxY = boxRect.height - btnRect.height - 20;
+
+            // Generate random position within container
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+
+            // Keep button inside container
+            x = Math.max(10, Math.min(x, maxX));
+            y = Math.max(1, Math.min(y, maxY));
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+            // Change button text after multiple attempts
+            if (moveCount === 3) {
+                noBtn.innerHTML = '<span>Please? 🥺</span>';
+            } else if (moveCount === 5) {
+                noBtn.innerHTML = '<span>Don\'t do this 😭</span>';
+            } else if (moveCount === 7) {
+                noBtn.innerHTML = '<span>Okay fine, Yes? 👉👈</span>';
+            }
+        }
+
+        // Desktop - mouseover
+        noBtn.addEventListener("mouseover", function (e) {
+            e.preventDefault();
+            moveButton();
+        });
+
+        // Mobile - touch
+        noBtn.addEventListener("touchstart", function (e) {
+            e.preventDefault();
+            moveButton();
+        });
+
+        // Yes button functionality
+        function goWhatsApp() {
+            // Show popup instead of directly redirecting
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById('successPopup').classList.add('show');
+
+            // Store the WhatsApp URL for the popup button
+            window.whatsappUrl = "https://wa.me/YOURNUMBER?text=Hey%20👋%20I%20forgive%20you!%20Let's%20talk%20💙";
+        }
+
+        function closePopup() {
+            // Redirect to WhatsApp when popup button is clicked
+            window.location.href = window.whatsappUrl;
+        }
+
+        // Add escape key to close popup
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.getElementById('overlay').classList.remove('show');
+                document.getElementById('successPopup').classList.remove('show');
+            }
+        });
+
+        // Click overlay to close
+        document.getElementById('overlay').addEventListener('click', function () {
+            this.classList.remove('show');
+            document.getElementById('successPopup').classList.remove('show');
+        });
+
+        // Add some sparkle effect on container hover
+        box.addEventListener('mouseenter', function () {
+            this.style.transition = 'all 0.3s ease';
+        });
+
+        // Initialize button position
+        window.addEventListener('load', function () {
+            noBtn.style.position = 'relative';
+            noBtn.style.left = '0';
+            noBtn.style.top = '0';
+        });
+
+        // Update YOURNUMBER in WhatsApp link
+        // Replace with your actual WhatsApp number
+        // Format: country code without plus, e.g., 1234567890
+    </script>
+</body>
+
+</html>
